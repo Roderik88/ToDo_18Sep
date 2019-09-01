@@ -12,8 +12,11 @@ class UsertasksController < ApplicationController
   end
 
   def destroy
-    
-  end
+    @task = Task.find(params[:task_id])
+    @usertasks = Usertask.find_by(task: @task, user: current_user.id)
+      @usertasks.destroy
+        redirect_to tasks_path
+      end
 
   def index
     @usertasks = current_user.usertasks

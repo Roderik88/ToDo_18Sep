@@ -6,6 +6,7 @@
         <%= image_tag task.photo, class: 'card-img-top' %>
         <div class="body">
           <h5><%= task.name %></h5>
+          <a class="nav-item nav-link active" href="#"> Detalles <span class="sr-only">(current)</span></a>
           <% if user_signed_in? %>
             <% if existe_tarea_usuario?(task) %>
               <%= link_to "Cancelar", task_usertask_path(task, current_user), class: 'btn btn-success btn-blocks', method: :delete%>
