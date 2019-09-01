@@ -3,10 +3,9 @@
     <% @task.each do |task| %>
     <div class="col-3">
       <div class="card" style="margin:10px">
-        <%#<%= image_tag task.photo, class: 'card-img-top' %>
+        <%= image_tag task.photo, class: 'card-img-top' %>
         <div class="body">
           <h5><%= task.name %></h5>
-
           <% if user_signed_in? %>
             <% if existe_tarea_usuario?(task) %>
               <%= link_to "Cancelar", task_usertask_path(task, current_user), class: 'btn btn-success btn-blocks', method: :delete%>

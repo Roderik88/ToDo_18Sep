@@ -12,7 +12,7 @@ class UsertasksController < ApplicationController
   end
 
   def destroy
-    @task 
+    
   end
 
   def index
