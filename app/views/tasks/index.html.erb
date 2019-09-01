@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <% @task.each do |task| %>
+    <div class="col-3">
+      <div class="card" style="margin:10px">
+        <%#<%= image_tag task.photo, class: 'card-img-top' %>
+        <div class="body">
+          <h5><%= task.name %></h5>
+
+          <% if user_signed_in? %>
+            <% if existe_tarea_usuario?(task) %>
+              <%= link_to "Cancelar", task_usertask_path(task, current_user), class: 'btn btn-success btn-blocks', method: :delete%>
+            <% else %>
+              <%= link_to "Completar", task_usertasks_path(task), class: 'btn btn-success btn-blocks', method: :post %>
+            <% end %>
+          <% else %>
+          <a class="nav-item nav-link active" href="<%= new_user_session_path %>"> Ingresar <span class="sr-only">(current)</span></a>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <div class="w-100" style="margin:10px"> </div>
+  </div>
+</div>
