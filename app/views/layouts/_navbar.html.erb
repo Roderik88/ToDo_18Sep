@@ -6,6 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <% if user_signed_in? %>
+      <a class="nav-item nav-link active" href=" <%= usertasks_path %> "> Detalles <span class="sr-only">(current)</span></a>
       <a class="nav-link" href="#">Completados <%=
         Usertask.where(user_id: current_user.id, completado: true).count
         %> / <%= Task.all.count %><span
