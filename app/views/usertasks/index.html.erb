@@ -1,0 +1,11 @@
+<div class="container">
+  <table class="table">
+    <% @usertasks.each do |usertask| %>
+    <tr>
+      <ul>
+        <td><li value="1"><%= usertask.task.name %></li></td>
+      </ul>
+    </tr>
+    <% end %>
+  </table>
+</div>

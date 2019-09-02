@@ -7,7 +7,7 @@
         <div class="body">
           <h5><%= task.name %></h5>
           <% if user_signed_in? %>
-          <a class="nav-item nav-link active" href=" <%= details_path %> "> Detalles <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href=" <%= usertasks_path %> "> Detalles <span class="sr-only">(current)</span></a>
             <% if existe_tarea_usuario?(task) %>
               <%= link_to "Cancelar", task_usertask_path(task, current_user), class: 'btn btn-success btn-blocks', method: :delete%>
             <% else %>

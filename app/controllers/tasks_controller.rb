@@ -3,8 +3,9 @@ class TasksController < ApplicationController
     @task = Task.all
   end
 
-  def details
-    @tasks = Task.all
-    @usertasks = Usertask.find_by(task: @task, user: current_user.id)
+  def show
+    @task = Task.find(params[:id])
+    @ranking5 = Usertask.limit(5).where(task_id: @task.id).order(created_at: :asc)
+    @users_todo_finish = Usertask.all.where(task_id: @task.id).order(created_at: :asc)
   end
 end

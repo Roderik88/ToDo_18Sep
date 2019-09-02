@@ -1,0 +1,40 @@
+<div class>
+  <div class="card mx-auto my-4" style="width: 18rem;">
+    <h3><%= @task.name %></h3>
+    <%= image_tag @task.photo, class: "card-img-top" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col 6">
+      <table class="table">
+        <thead>
+            <h2>Top 5</h2>
+          <tr>
+            <th scope="col">Usuario</th>
+            <th scope="col">Fecha realizada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ranking5.each do |rank| %>
+            <tr>
+              <td><%= User.find_by(id: rank.user_id).name %></td>
+              <td><%= rank.created_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col 6">
+      <h2>Usuarios que han realizado la tarea</h2>
+      <ul class="list-group">
+        <% @users_todo_finish.each do |user| %>
+        <li class="list-group-item"><%= User.find_by(id: user.user_id).name %> </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+</div>
